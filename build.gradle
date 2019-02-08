@@ -283,6 +283,10 @@ clean.doFirst {
 }
 
 build.doLast {
+    // Create library folder
+    File libraryFolder = file("library")
+    libraryFolder.mkdirs();
+
     // Copying lib jar to library folder
     File libJar = file("library/${libName}.jar")
     Files.copy(file("$buildDir/libs/${libName}.jar").toPath(),
